@@ -1,4 +1,4 @@
-package mvcrest.models;
+package mvcrest.domain;
 
 import lombok.Data;
 
