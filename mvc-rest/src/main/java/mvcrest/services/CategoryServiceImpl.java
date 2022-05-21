@@ -3,10 +3,12 @@ package mvcrest.services;
 import mvcrest.api.v1.mappers.CategoryMapper;
 import mvcrest.api.v1.models.CategoryDTO;
 import mvcrest.repos.CategoryRepo;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryMapper categoryMapper;
