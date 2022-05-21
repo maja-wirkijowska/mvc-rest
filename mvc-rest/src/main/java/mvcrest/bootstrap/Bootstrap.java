@@ -1,7 +1,9 @@
 package mvcrest.bootstrap;
 
 import mvcrest.domain.Category;
+import mvcrest.domain.Customer;
 import mvcrest.repos.CategoryRepo;
+import mvcrest.repos.CustomerRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -9,14 +11,33 @@ import org.springframework.stereotype.Component;
 public class Bootstrap implements CommandLineRunner {
 
     private final CategoryRepo categoryRepo;
+    private final CustomerRepo customerRepo;
 
-    public Bootstrap(CategoryRepo categoryRepo) {
+    public Bootstrap(CategoryRepo categoryRepo, CustomerRepo customerRepo) {
         this.categoryRepo = categoryRepo;
+        this.customerRepo = customerRepo;
     }
 
     @Override
     public void run(String... args) throws Exception {
         loadCategories();
+        loadCustomers();
+    }
+
+    private void loadCustomers() {
+        Customer c1 = new Customer();
+        c1.setId(1L);
+        c1.setFirstname("Michael");
+        c1.setLastname("Weston");
+        customerRepo.save(c1);
+
+        Customer c2 = new Customer();
+        c2.setId(2L);
+        c2.setFirstname("Sam");
+        c2.setLastname("Axe");
+        customerRepo.save(c2);
+
+        System.out.println("Customers Loaded: " + customerRepo.count());
     }
 
     private void loadCategories() {

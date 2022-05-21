@@ -1,4 +1,4 @@
-package mvcrest.controllers;
+package mvcrest.controllers.v1;
 
 import mvcrest.api.v1.models.CategoryDTO;
 import mvcrest.controllers.v1.CategoryController;
@@ -39,7 +39,7 @@ class CategoryControllerTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        //categoryController = new CategoryController(categoryService);
+        categoryController = new CategoryController(categoryService);
         mockMvc = MockMvcBuilders.standaloneSetup(categoryController).build();
     }
 
